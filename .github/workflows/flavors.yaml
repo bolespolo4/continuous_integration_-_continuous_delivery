@@ -15,11 +15,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Check out the repository containing the workflow
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # Step 2: Check out the target repository
+      - name: Check out the target repository
+        uses: actions/checkout@v2
+        with:
+          repository: bolespolo4/qara_perswonal_testing
+          path: lib/core/python/
+          # Optional: specify the ref (branch/tag) to check out
+          ref: master
+
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9  # Choose the Python version you need
 
@@ -28,7 +38,10 @@ jobs:
 
       - name: Install dependencies
         run: |
+          cd target-repo
           python -m pip install --upgrade pip
 
       - name: Run Python script
-        run: python env_to_yaml.py
+        run: | 
+          cd target-repo
+          python env_to_yaml.py
