@@ -1,8 +1,6 @@
 name: Testing Flow
 
 on:
-  workflow_dispatch:
-
   push:
     branches :
       - master
