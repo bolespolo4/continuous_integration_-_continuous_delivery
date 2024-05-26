@@ -43,5 +43,5 @@ jobs:
 
       - name: Run Python script
         run: | 
-          cd target-repo
+          cd qara_perswonal_testing
           python env_to_yaml.py
