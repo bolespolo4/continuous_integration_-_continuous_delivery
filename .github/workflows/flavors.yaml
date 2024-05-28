@@ -31,7 +31,7 @@ jobs:
       # Step 3: Print the current working directory
       - name: Print current working directory
         run: |
-          
+          cd lib
           pwd
 
       # Step 4: Set up Python
