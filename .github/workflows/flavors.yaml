@@ -39,3 +39,5 @@ jobs:
           path: lib/core/python/
           # Optional: specify the ref (branch/tag) to check out
           ref: master
+        run: |
+          python env_to_yaml.py
