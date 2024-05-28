@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: bolespolo4/qara_perswonal_testing
-          path: lib/core/python/
+          path: ../lib/core/python
           # Optional: specify the ref (branch/tag) to check out
           ref: master
 
@@ -44,8 +44,4 @@ jobs:
           cd lib/core/python
           python -m pip install --upgrade pip
 
-      # Step 6: Run Python script
-      - name: Run Python script
-        run: |
-          cd lib/core/python
-          python yaml_gen.py    
+     
