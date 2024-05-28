@@ -15,9 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository containing the workflow
-      - name: Checkout repository
-        uses: actions/checkout@v2
 
       # Step 2: Check out the target repository
       - name: Check out the target repository
