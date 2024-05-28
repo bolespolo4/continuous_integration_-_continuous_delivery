@@ -30,7 +30,9 @@ jobs:
 
       # Step 3: Print the current working directory
       - name: Print current working directory
-        run: pwd
+        run: |
+          cd qara_perswonal_testing
+          pwd
 
       # Step 4: Set up Python
       - name: Set up Python
@@ -45,7 +47,6 @@ jobs:
       # Step 6: Install dependencies
       - name: Install dependencies
         run: |
-          cd lib/core/python
           python -m pip install --upgrade pip
 
      
