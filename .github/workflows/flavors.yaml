@@ -32,7 +32,7 @@ jobs:
           pwd; ls; 
           echo "\n"
           echo "^^^^ \n ^^^^" 
-          ls packages/lib/core/python
+          cd packages/lib/core/python
           echo "pythonFilePath=$(pwd)" >> $GITHUB_OUTPUT
           cat $GITHUB_OUTPUT
 
