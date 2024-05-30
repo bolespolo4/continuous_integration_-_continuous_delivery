@@ -51,14 +51,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
 
-      - name: execute python script
-        run: |
-          echo "${{ steps.pythonDir.outputs.pythonFilePath }}"
-          python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py"
-
       - name: Get Secrets
         id: getSecrets
         run: |
           echo -n "${{secrets.APP_CONFIG}}" | base64 --decode > file.env
           cat file.env
+
+      - name: execute python script
+        run: |
+          echo "${{ steps.pythonDir.outputs.pythonFilePath }}"
+          python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py"
           
