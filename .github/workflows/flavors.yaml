@@ -27,24 +27,28 @@ jobs:
 
       # Step 2: Print the current working directory
       - name: Print current working directory
+        id: pythonDir
         run: |
           pwd; ls; 
           echo "\n"
           echo "^^^^ \n ^^^^" 
-          ls packages/lib
+          ls packages/lib/core/python
+          echo "pythonFilePath=$(pwd)" >> $GITHUB_OUTPUT
+          cat $GITHUB_OUTPUT
+
 #      # Step 4: Set up Python
 #      - name: Set up Python
 #        uses: actions/setup-python@v4
 #        with:
 #          python-version: 3.9  # Choose the Python version you need
 #
-#      # Step 5: Install the pyYAML package
-#      - name: Install PyYAML
-#        run: python -m pip install PyYAML  # Install PyYAML using pip
-#
-#      # Step 6: Install dependencies
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
+      # Step 5: Install the pyYAML package
+      - name: Install PyYAML
+        run: python -m pip install PyYAML  # Install PyYAML using pip
+
+      # Step 6: Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
 
      
