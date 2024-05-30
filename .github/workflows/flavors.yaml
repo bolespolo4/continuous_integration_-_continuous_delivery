@@ -51,4 +51,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
 
-     
+      - name: execute python script
+        run: |
+          python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py"
