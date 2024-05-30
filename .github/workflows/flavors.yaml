@@ -56,9 +56,11 @@ jobs:
         run: |
           echo -n '${{ secrets.APP_CONFIG }}' | base64 --decode > file.env
           cat file.env
+          echo "envFile=$(pwd)/file.env" >> $GITHUB_OUTPUT
 
       - name: execute python script
         run: |
+          echo "${{ steps.getSecrets.outputs.envFile }}"
           echo "${{ steps.pythonDir.outputs.pythonFilePath }}"
           python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py"
           
