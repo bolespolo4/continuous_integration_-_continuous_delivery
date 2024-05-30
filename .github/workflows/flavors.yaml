@@ -28,7 +28,7 @@ jobs:
       # Step 2: Print the current working directory
       - name: Print current working directory
         run: |
-          cd lib; pwd; ls
+          pwd; ls; cd qara_perswonal_testing; ls
 #
 #      # Step 4: Set up Python
 #      - name: Set up Python
