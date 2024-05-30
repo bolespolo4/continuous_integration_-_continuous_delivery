@@ -53,5 +53,5 @@ jobs:
 
       - name: execute python script
         run: |
-          echo "${{ steps.pythonDir.outputs.pythonFilePath }}
+          echo "${{ steps.pythonDir.outputs.pythonFilePath }}"
           python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py"
