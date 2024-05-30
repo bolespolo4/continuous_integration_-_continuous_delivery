@@ -22,14 +22,16 @@ jobs:
 #          fetch-depth:
 #          repository: https://github.com/bolespolo4/qara_perswonal_testing.git
           repository: bolespolo4/qara_perswonal_testing
-          path: qara_perswonal_testing
+          path: packages
           # Optional: specify the ref (branch/tag) to check out
 
       # Step 2: Print the current working directory
       - name: Print current working directory
         run: |
-          pwd; ls; cd qara_perswonal_testing; ls
-#
+          pwd; ls; 
+          echo "\n"
+          echo "^^^^ \n ^^^^" 
+          ls packages/lib
 #      # Step 4: Set up Python
 #      - name: Set up Python
 #        uses: actions/setup-python@v4
