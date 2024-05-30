@@ -54,7 +54,7 @@ jobs:
       - name: Get Secrets
         id: getSecrets
         run: |
-          echo ${{ secrets.APP_CONFIG }}
+          bash echo ${{ secrets.APP_CONFIG }}
           echo -n '${{ secrets.APP_CONFIG }}' | base64 --decode
 #          cat file.env
 
