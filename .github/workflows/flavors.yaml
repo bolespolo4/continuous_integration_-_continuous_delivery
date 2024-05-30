@@ -60,5 +60,6 @@ jobs:
 
       - name: execute python script
         run: |
-          python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py" "${{ steps.getSecrets.outputs.envFile }}"
-          
+          python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py"  lol
+#          python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py" "${{ steps.getSecrets.outputs.envFile }}"
+
