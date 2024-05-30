@@ -62,5 +62,5 @@ jobs:
         run: |
           echo "${{ steps.getSecrets.outputs.envFile }}"
 #          echo "${{ steps.pythonDir.outputs.pythonFilePath }}"
-          python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py" "${{ steps.getSecrets.outputs.envFile }}"
+          python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py"
           
