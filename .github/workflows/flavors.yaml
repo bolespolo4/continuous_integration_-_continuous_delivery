@@ -65,3 +65,5 @@ jobs:
       - name: copy the yaml file and paste it in project dir
         run: |
           ls; pwd
+          cd ../
+          ls
