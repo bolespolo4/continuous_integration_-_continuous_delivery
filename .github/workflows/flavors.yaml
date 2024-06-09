@@ -83,7 +83,7 @@ jobs:
         run: |
           cd project
           pwd; ls
-          mv -f {{ steps.pythonDir.outputs.pythonFilePath }}/flavorizr.yaml ../flavorizr.yaml 
+          mv -f {{ steps.getYaml.outputs.yamlFile }}/flavorizr.yaml ./flavorizr.yaml 
           # pwd; ls
 
       # - name: Move file to another directory
