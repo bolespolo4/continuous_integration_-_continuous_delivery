@@ -67,8 +67,6 @@ jobs:
         id: getYaml
         run: |
           pwd; ls
-          # mv flavorizr.yaml ../
-          # pwd; ls
           echo "yamlFile=$(pwd)/flavorizr.yaml" >> $GITHUB_OUTPUT
 
       # Step 9: Check out the project repository
@@ -83,19 +81,17 @@ jobs:
         run: |
           cd project
           pwd; ls
-          mv -f {{ steps.getYaml.outputs.yamlFile }} /home/runner/work/continuous_integration_-_continuous_delivery/continuous_integration_-_continuous_delivery/project
+          echo "${{ steps.getYaml.outputs.yamlFile }} "
+          # mv -f {{ steps.getYaml.outputs.yamlFile }} pwd
 
+          #   # Check if the destination directory exists, create if it doesn't
+          #   if [ ! -d "path/to/destination/dir" ]; then
+          #     mkdir -p path/to/destination/dir
+          #   fi
 
-      # - name: Move file to another directory
-      #   run: |
-      #     # Check if the destination directory exists, create if it doesn't
-      #     if [ ! -d "path/to/destination/dir" ]; then
-      #       mkdir -p path/to/destination/dir
-      #     fi
-
-      #     # Move the file to the destination directory and override if it exists
-      #     mv -f source/file.txt path/to/destination/dir/
-      #   working-directory: ${{ github.workspace }}
+          #   # Move the file to the destination directory and override if it exists
+          #   mv -f source/file.txt path/to/destination/dir/
+          # working-directory: ${{ github.workspace }}
 
 
       # Step 11: Commit & Push
