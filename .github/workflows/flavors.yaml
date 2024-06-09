@@ -64,6 +64,6 @@ jobs:
       # Step 8: Move YAML File
       - name: Move YAML File to main project
         run: |
-          ls; pwd
+          pwd
           cd ../
-          ls
+          pwd
