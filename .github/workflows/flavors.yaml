@@ -64,6 +64,5 @@ jobs:
       # Step 8: Move YAML File
       - name: Move YAML File to main project
         run: |
-          pwd
-          cd ../
-          pwd
+          mv flavorizr.yaml ../
+          cd ../; ls
