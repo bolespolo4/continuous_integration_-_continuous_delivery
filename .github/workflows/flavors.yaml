@@ -83,6 +83,7 @@ jobs:
           mv -f flavorizr.yaml project
           cd project
           pwd; ls
+          cat flavorizr.yaml
 
           #   # Check if the destination directory exists, create if it doesn't
           #   if [ ! -d "path/to/destination/dir" ]; then
