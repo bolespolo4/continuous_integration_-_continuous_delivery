@@ -67,3 +67,18 @@ jobs:
           pwd; ls
           mv flavorizr.yaml ../
           pwd; ls
+
+      # Step 9: Check out the project repository
+      - name: Check out the project repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          path: project
+
+      # Step 8: Move YAML File
+      - name: Move YAML File to main project
+        run: |
+          cd project
+          pwd; ls
+          # mv flavorizr.yaml ../
+          # pwd; ls
