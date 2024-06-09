@@ -84,7 +84,7 @@ jobs:
           cd project
           pwd; ls
           echo "${{ steps.getYaml.outputs.yamlFile }} "
-          mv -f {{ steps.getYaml.outputs.yamlFile }} ./flavorizr.yaml 
+          mv -f {{ steps.getYaml.outputs.yamlFile }} flavorizr.yaml 
 
       # - name: Move file to another directory
       #   run: |
