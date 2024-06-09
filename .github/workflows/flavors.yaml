@@ -62,13 +62,6 @@ jobs:
         run: | 
           python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py" ${{ steps.getSecrets.outputs.envFile }}
 
-      # Step 8: Move YAML File
-      - name: Move YAML File to main project
-        id: getYaml
-        run: |
-          pwd; ls
-          echo "yamlFile=$(pwd)/flavorizr.yaml" >> $GITHUB_OUTPUT
-
       # Step 9: Check out the project repository
       - name: Check out the project repository
         uses: actions/checkout@v4
@@ -76,13 +69,21 @@ jobs:
           repository: ${{ github.repository }}
           path: project
 
+      # # Step 8: Move YAML File
+      # - name: Move YAML File to main project
+      #   id: getYaml
+      #   run: |
+      #     pwd; ls
+      #     echo "yamlFile=$(pwd)/flavorizr.yaml" >> $GITHUB_OUTPUT
+
       # Step 10: Move YAML File
       - name: Move YAML File to main project
         run: |
-          cd project
           pwd; ls
           echo "${{ steps.getYaml.outputs.yamlFile }} "
-          # mv -f {{ steps.getYaml.outputs.yamlFile }} pwd
+          mv -f {{ steps.getYaml.outputs.yamlFile }} ../project
+          cd project
+          pwd; ls
 
           #   # Check if the destination directory exists, create if it doesn't
           #   if [ ! -d "path/to/destination/dir" ]; then
