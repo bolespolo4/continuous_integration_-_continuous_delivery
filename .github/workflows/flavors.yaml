@@ -95,10 +95,10 @@ jobs:
           # working-directory: ${{ github.workspace }}
 
 
-      # Step 11: Commit & Push
-      - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Move file to another directory
-          commit_user_name: GitHub Actions
-          commit_user_email: actions@github.com
+      # # Step 11: Commit & Push
+      # - name: Commit and push changes
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: Move file to another directory
+      #     commit_user_name: GitHub Actions
+      #     commit_user_email: actions@github.com
