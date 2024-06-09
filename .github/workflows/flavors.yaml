@@ -83,8 +83,8 @@ jobs:
         run: |
           cd project
           pwd; ls
-          echo "${{ steps.getYaml.outputs.yamlFile }} "
-          mv -f {{ steps.getYaml.outputs.yamlFile }} pwd
+          mv -f {{ steps.getYaml.outputs.yamlFile }} /home/runner/work/continuous_integration_-_continuous_delivery/continuous_integration_-_continuous_delivery/project
+
 
       # - name: Move file to another directory
       #   run: |
