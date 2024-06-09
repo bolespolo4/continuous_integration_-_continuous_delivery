@@ -67,8 +67,8 @@ jobs:
         id: getYaml
         run: |
           pwd; ls
-          mv flavorizr.yaml ../
-          pwd; ls
+          # mv flavorizr.yaml ../
+          # pwd; ls
           echo "yamlFile=$(pwd)/flavorizr.yaml" >> $GITHUB_OUTPUT
 
       # Step 9: Check out the project repository
