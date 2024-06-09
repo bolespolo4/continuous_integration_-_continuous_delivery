@@ -13,7 +13,7 @@ jobs:
   build:
     # Install the OS
     name: Install OS
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       # Step 1: Check out the target repository
@@ -64,5 +64,6 @@ jobs:
       # Step 8: Move YAML File
       - name: Move YAML File to main project
         run: |
-          mv flavorizr.yaml ../
+          pwd; ls
+          # mv flavorizr.yaml ../
           cd ../; ls
