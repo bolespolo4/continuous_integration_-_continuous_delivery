@@ -16,6 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Get Dir
+        run: |
+          pwd; ls
+
       # Step 1: Check out the target repository
       - name: Check out the target repository
         uses: actions/checkout@v4
