@@ -98,11 +98,10 @@ jobs:
       - name: Change app name
         run: |
           ls
-          cd project/lib/core
+          cd project/lib/core/constants
           ls
-          # cd lib
-          # ls
-          # vim -c '%s/HSE-KSA/KZ/g' -c 'wq' core/constants.dart
+          cat constants.dart
+          # vim -c '%s/HSE-KSA/KZ/g' -c 'wq' constants.dart
 
       # # Step 11: Commit & Push
       # - name: Commit and push changes
