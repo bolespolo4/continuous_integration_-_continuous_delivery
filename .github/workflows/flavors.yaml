@@ -58,7 +58,7 @@ jobs:
           cat file.env
           echo "envFile=$(pwd)/file.env" >> $GITHUB_OUTPUT
 
-      - name: execute python script
+      - name: 
         run: | 
           python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py" ${{ steps.getSecrets.outputs.envFile }}
 
