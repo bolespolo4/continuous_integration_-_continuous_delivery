@@ -97,7 +97,7 @@ jobs:
       # Step 11: change app name
       - name: Change app name
         run: |
-          vim -c '%s/HSE-KSA/KZ/g' -c 'wq' Documents/apps/ksa_ksa/lib/core/constants/constants.dart
+          vim -c '%s/HSE-KSA/KZ/g' -c 'wq' lib/core/constants.dart
 
       # # Step 11: Commit & Push
       # - name: Commit and push changes
