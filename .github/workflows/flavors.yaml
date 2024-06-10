@@ -97,7 +97,7 @@ jobs:
       # Step 11: change app name
       - name: Change app name
         run: |
-          pwd
+          pwd; ls
           # cd lib
           # ls
           # vim -c '%s/HSE-KSA/KZ/g' -c 'wq' core/constants.dart
