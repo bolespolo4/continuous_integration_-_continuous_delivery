@@ -98,7 +98,7 @@ jobs:
       - name: Change app name
         run: |
           ls
-          cd project/lib/core/constants
+          cd project/lib/core
           ls
           cat constants.dart
           # vim -c '%s/HSE-KSA/KZ/g' -c 'wq' constants.dart
