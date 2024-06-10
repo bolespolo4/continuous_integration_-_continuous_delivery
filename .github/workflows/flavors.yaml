@@ -98,7 +98,7 @@ jobs:
       - name: Change app name
         run: |
           ls
-          cd project/lib
+          cd project/lib/core
           ls
           # cd lib
           # ls
