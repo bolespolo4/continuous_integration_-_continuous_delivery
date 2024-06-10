@@ -11,7 +11,8 @@ on:
 
 jobs:
   build:
-    name: Run Python script
+    # Install the OS
+    name: Install OS
     runs-on: ubuntu-latest
 
     steps:
@@ -19,11 +20,8 @@ jobs:
       - name: Check out the target repository
         uses: actions/checkout@v4
         with:
-#          fetch-depth:
-#          repository: https://github.com/bolespolo4/qara_perswonal_testing.git
           repository: bolespolo4/qara_perswonal_testing
           path: packages
-          # Optional: specify the ref (branch/tag) to check out
 
       # Step 2: Print the current working directory
       - name: Print current working directory
@@ -36,29 +34,71 @@ jobs:
           echo "pythonFilePath=$(pwd)" >> $GITHUB_OUTPUT
           cat $GITHUB_OUTPUT
 
-#      # Step 4: Set up Python
-#      - name: Set up Python
-#        uses: actions/setup-python@v4
-#        with:
-#          python-version: 3.9  # Choose the Python version you need
-#
-      # Step 5: Install the pyYAML package
+      # Step 3: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9  # Choose the Python version you need
+
+      # Step 4: Install the pyYAML package
       - name: Install PyYAML
         run: python -m pip install PyYAML  # Install PyYAML using pip
 
-      # Step 6: Install dependencies
+      # Step 5: Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
 
+      # Step 6: Get Secrets
       - name: Get Secrets
         id: getSecrets
         run: |
           echo -n '${{ secrets.APP_CONFIG }}' | base64 --decode > file.env
           cat file.env
           echo "envFile=$(pwd)/file.env" >> $GITHUB_OUTPUT
-
-      - name: 
+          
+      # Step 7: Run Python Script
+      - name: Execute python script
         run: | 
           python "${{ steps.pythonDir.outputs.pythonFilePath }}/yaml_gen.py" ${{ steps.getSecrets.outputs.envFile }}
 
+      # Step 9: Check out the project repository
+      - name: Check out the project repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          path: project
+
+      # # Step 8: Move YAML File
+      # - name: Move YAML File to main project
+      #   id: getYaml
+      #   run: |
+      #     pwd; ls
+      #     echo "yamlFile=$(pwd)/flavorizr.yaml" >> $GITHUB_OUTPUT
+
+      # Step 10: Move YAML File
+      - name: Move YAML File to main project
+        run: |
+          pwd; ls
+          mv -f flavorizr.yaml project
+          cd project
+          pwd; ls
+          cat flavorizr.yaml
+
+          #   # Check if the destination directory exists, create if it doesn't
+          #   if [ ! -d "path/to/destination/dir" ]; then
+          #     mkdir -p path/to/destination/dir
+          #   fi
+
+          #   # Move the file to the destination directory and override if it exists
+          #   mv -f source/file.txt path/to/destination/dir/
+          # working-directory: ${{ github.workspace }}
+
+
+      # # Step 11: Commit & Push
+      # - name: Commit and push changes
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: Move file to another directory
+      #     commit_user_name: GitHub Actions
+      #     commit_user_email: actions@github.com
